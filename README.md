@@ -41,8 +41,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
- This is a fun project I made to predict the probability of a team winning a competitive match in Paladins. 
- I scraped over 1000 matches from Hi-Rez's API and then trained and tuned Support Vector Classification model based on the dataset.
+ This is a personal project I made to predict the probability of a team winning a competitive match in Paladins. 
+ I scraped over 1000 matches from Hi-Rez's API and then trained and tuned a Support Vector Classification model with the dataset.
  Using this model, I created a very simple interface where you can search up a player in a match and predict in real time the probability of their team winning.
 
 
