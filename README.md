@@ -42,7 +42,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
  This is a personal project I made to predict the probability of a team winning a competitive match in Paladins. 
- I scraped over 1000 matches from Hi-Rez's API and then trained and tuned a Support Vector Classification model with the dataset.
+ I scraped over 1000 matches from Hi-Rez's API and then trained a Support Vector Classification model with the dataset.
+ I was able to achieve an accuracy of **86%** by tuning the model's hyperparameters with Grid Search.
  Using this model, I created a very simple interface where you can search up a player in a match and predict in real time the probability of their team winning.
 
 
