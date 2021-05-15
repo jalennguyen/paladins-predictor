@@ -1,8 +1,14 @@
+from dotenv import load_dotenv
+import os
 from pyrez.api import PaladinsAPI
 import pandas as pd
 
-# authorize with paladins api
-paladins = PaladinsAPI(devId=0000, authKey="0000")
+load_dotenv()
+DEV_ID = os.getenv("DEVELOPER_ID")
+AUTH_KEY = os.getenv("AUTHENTICATION_KEY")
+
+# create paladins object
+paladins = PaladinsAPI(devId=DEV_ID, authKey=AUTH_KEY)
 
 
 def team_stats(team, i):
@@ -33,21 +39,25 @@ def team_stats(team, i):
     return stats
 
 
-def match_stats(id):
-    # get all players in current match
-    players = paladins.getMatch(id)
+def match_stats(match_id):
+    # retrieve all players in current match
+    match = paladins.getMatch(match_id)
+
+    if not match:
+        print("No matches could be found for inputted date.")
+        quit()
 
     # split players into their respective teams
     team1 = []
     team2 = []
-    for player in players:
+    for player in match:
         if player["TaskForce"] == 1:
             team1.append(player)
         else:
             team2.append(player)
 
     # create dict for match info
-    match = {
+    match_info = {
         "match_id": team1[0]["Match"],
         "winner": team1[0]["Winning_TaskForce"] - 1,
         "map": team1[0]["Map_Game"],
@@ -59,16 +69,19 @@ def match_stats(id):
     stats1 = team_stats(team1, 1)
     stats2 = team_stats(team2, 6)
 
-    return match, stats1, stats2
+    return match_info, stats1, stats2
 
 
-def get_champ(id, champ):
+def get_champ(player_id, champ_id):
+    # retrieve player's stats for each champion
+    champions = paladins.getQueueStats(player_id, 486)
+
     # retrieve stats for current champion
-    champions = paladins.getQueueStats(id, 486)
-
     for champion in champions:
-        if champion["ChampionId"] == champ:
+        if champion["ChampionId"] == champ_id:
             return champion
+
+    # return blank stats if first time playing champion
     empty = {
             "Assists": 0,
             "Champion": None,
@@ -91,20 +104,22 @@ def get_champ(id, champ):
 
 def get_ids():
     while True:
-        date = input("Enter a date as YYYYMMDD: ")
+        date = input("Enter desired date as YYYYMMDD: ")
         hour = int(input("Enter hour 0 - 23: "))
-        limit = int(input("Enter maximum number of matches to be returned: "))
+        limit = int(input("Enter maximum # of matches to be returned: "))
 
+        # retrieve batch of ids from api
         match_ids = paladins.getMatchIds(486, date, hour)
         if not match_ids:
             print("No match ids found!")
         else:
             break
 
-    # limiting number of match ids returned
+    # limit number of match ids returned
     if len(match_ids) > limit:
         match_ids = match_ids[:limit]
 
+    # format returned match ids
     for i in range(len(match_ids)):
         match_ids[i] = int(str(match_ids[i])[9:-1])
 
@@ -157,9 +172,9 @@ def scrape(match_ids):
     team2 = team2[col2]
 
     # export data to csv
-    matches.to_csv("matchhhhh.csv", mode="a", index=False, header=False)
-    team1.to_csv("teamhhhh1.csv", mode="a", index=False, header=False)
-    team2.to_csv("teamhhh2.csv", mode="a", index=False, header=False)
+    matches.to_csv("match.csv", mode="a", index=False, header=False)
+    team1.to_csv("team1.csv", mode="a", index=False, header=False)
+    team2.to_csv("team2.csv", mode="a", index=False, header=False)
     print("Exported", len(match_ids), "matches successfully!")
 
 
