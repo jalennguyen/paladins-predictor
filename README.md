@@ -44,13 +44,14 @@
  This is a personal project I made to predict the probability of a team winning a competitive match in Paladins. 
  I scraped over 1000 matches from Hi-Rez's API and then trained a Support Vector Classification model with the dataset.
  I was able to achieve an accuracy of **86%** by tuning the model's hyperparameters with Grid Search.
- Using this model, I created a very simple interface where you can search up a player in a match and predict in real time the probability of their team winning.
+ I implemented the predictor through a Discord Bot where you can predict the outcome of a match in real time from within your own Discord Server.
 
 
 ### Built With
 
 * [PyRez](https://pyrez.readthedocs.io/en/stable/api.html#paladinsapi) (Hi-Rez API wrapper for Python)
 * [Scikit-learn](https://scikit-learn.org/stable/index.html)
+* [discord.py](https://discordpy.readthedocs.io/en/stable/index.html)
 * Python
 * Jupyter Notebook
 * Microsoft Excel
@@ -62,6 +63,14 @@
 To get a local copy up and running follow these couple steps.
 
 ### Install dependencies
+* dotenv
+  ```sh
+  $ pip install -U dotenv
+  ```
+* discord.py
+  ```sh
+  $ pip install -U discord.py
+  ```
 * pyrez
   ```sh
   $ pip install -U pyrez
@@ -72,7 +81,11 @@ To get a local copy up and running follow these couple steps.
   ```
 
 ### Credentials
+## Paladins
 In order to access the Hi-Rez API, you need your own set of developer credentials. You can request them [here](https://fs12.formsite.com/HiRez/form48/secure_index.html).
+
+## Discord
+The model uses a Discord Bot as an interface to make predictions. To set up your own bot, go to https://discord.com/developers/applications , create an application, copy its Token (under the Bot tab) and invite it to your preferred server.
 
 
 ### Installation
@@ -81,14 +94,14 @@ In order to access the Hi-Rez API, you need your own set of developer credential
    ```sh
    git clone https://github.com/jalennguyen/paladins-predictor.git
    ```
-2. Insert your Hi-Rez API developer id (devId) and authentication key (authkey) into **predict.py** and **scrape.py**
+2. Insert your Hi-Rez API developer id (devId), authentication key (authkey), and Discord Bot Token into the .env file.
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Once you have everything set up, run **predict.py** and search a username to start getting predictions.
+Once you have everything set up, run **bot.py** and type the command "!predict <username>" to start getting match predictions.
 Remember, **always** take the model's predictions with a grain of salt. There are many variables that go into each game, the model does not represent the entire story - **GLHF**.
 
 
@@ -108,7 +121,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- CONTACT -->
 ## Contact
 
-Jalen Nguyen - jalennguyen@gmail.com
+Jalen Nguyen - jalennguyen@gmail.com - Jalen#3679
 
 Project Link: [https://github.com/jalennguyen/paladins-predictor](https://github.com/jalennguyen/paladins-predictor)
 
