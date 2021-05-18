@@ -101,7 +101,7 @@ The model uses a Discord Bot as an interface to make predictions. To set up your
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Once you have everything set up, run **bot.py** and type the command "!predict <username>" to start getting match predictions.
+Once you have everything set up, run **bot.py** and use the command "!predict \<username\>" to start getting match predictions.
 Remember, **always** take the model's predictions with a grain of salt. There are many variables that go into each game, the model does not represent the entire story - **GLHF**.
 
 
