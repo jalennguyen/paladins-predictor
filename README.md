@@ -4,38 +4,9 @@
       <img src="images/logo.png" alt="Logo" width="300" height="115">
     </a>
 
-  <h3 align="center">Live Match Prediction</h3>
-  
-  <p align="center">
-    <a href="https://github.com/jalennguyen/paladins-predictor/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/jalennguyen/paladins-predictor/issues">Request Feature</a>
-  </p>
+  <h1 align="center">Live Match Prediction</h1>
+
 </p>
-
-
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
 
 
 
@@ -52,7 +23,6 @@
 * [PyRez](https://pyrez.readthedocs.io/en/stable/api.html#paladinsapi) (Hi-Rez API wrapper for Python)
 * [Scikit-learn](https://scikit-learn.org/stable/index.html)
 * [discord.py](https://discordpy.readthedocs.io/en/stable/index.html)
-* Python
 * Jupyter Notebook
 * Microsoft Excel
 
@@ -94,51 +64,15 @@ The model uses a Discord Bot as an interface to make predictions. To set up your
    ```sh
    git clone https://github.com/jalennguyen/paladins-predictor.git
    ```
-2. Insert your Hi-Rez API developer id (devId), authentication key (authkey), and Discord Bot Token into the .env file.
+2. Insert your Hi-Rez API developer id (devId), authentication key (authkey), and Discord Bot Token into the environment (.env) file.
 
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
+<img src="images/screenshot.png" alt="Usage" width="424" height="212">
+
 Once you have everything set up, run **bot.py** and use the command "!predict \<username\>" to start getting match predictions.
 Remember, **always** take the model's predictions with a grain of salt. There are many variables that go into each game, the model does not represent the entire story - **GLHF**.
 
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-<!-- CONTACT -->
-## Contact
-
-Jalen Nguyen - jalennguyen@gmail.com - Jalen#3679
-
-Project Link: [https://github.com/jalennguyen/paladins-predictor](https://github.com/jalennguyen/paladins-predictor)
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
